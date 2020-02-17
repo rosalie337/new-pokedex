@@ -1,12 +1,26 @@
-import React from 'react';
-import './App.css';
+import React, { Component } from 'react';
+import { getCharacter } from './api.js'
+import CharacterItem from './CharacterItem.js';
 
-function Details() {
-  return (
-    <div className="Details">
-      <h1>Details Page</h1>
-    </div>
-  );
+export default class Detail extends Component {
+    state = { character: {} }
+
+    async componentDidMount() {
+        const data = await getCharacter(this.props.match.params.charId);
+        
+        if (data.body.results) {
+
+
+        this.setState({ character: data.body.results[0] })
+            
+        }
+    }
+
+    render() {
+        const { character } = this.state;
+
+        return (
+            <CharacterItem character={ character } />
+      );
+    }
 }
-
-export default Details;
