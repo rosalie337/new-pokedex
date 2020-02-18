@@ -17,10 +17,10 @@ export default class App extends Component {
           <div>
             <h2>Pokemon search</h2>
             <Link to="/">Home</Link>
-            <Link to="/about-me/some-other-param">About the Developer</Link>
+            <Link to="/about-me/About">About the Developer</Link>
             <Switch>
-              <Route exact path="?:name?" component={Home} />
-              <Route exact path="/about-me/:other/:thing/:here" component={About} />
+              <Route exact path="/:name?" component={Home} />
+              <Route exact path="/about-me/About" component={About} />
               <Route exact path="/characters/:charId" component={Detail} />
             </Switch>
           </div>

@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 
-export default Class haracterItem extends React.Component {
+export default class characterItem extends React.Component {
     render() {
-        const {character} = this.PaymentResponse;
+        const {character} = this.prop;
         const {
             image,
             pokemon,
@@ -24,7 +24,7 @@ export default Class haracterItem extends React.Component {
                     <p>attack: {attack}</p>
                     <p>defense: {defense}</p>
                 </div>
-        : <img src="https://pixelpapa.com/wp-content/uploads/2018/11/Flat-Preloaders.gif" />
+        : <img alt='loading art' src="https://pixelpapa.com/wp-content/uploads/2018/11/Flat-Preloaders.gif"/>
         }
         </>
         )
