@@ -1,11 +1,11 @@
 import React from 'react'
-import { render } from '@testing-library/react'
 
 export default class characterItem extends React.Component {
     render() {
-        const {character} = this.prop;
+        console.log(this.props.character)
+        const {character} = this.props;
         const {
-            image,
+            url_image,
             pokemon,
             species_id,
             hp,
@@ -15,9 +15,9 @@ export default class characterItem extends React.Component {
 
         return (
             <>
-            { character.name 
+            { character.pokemon
             ? <div>
-                    <p><img src={image} /></p>
+                    <p><img src={url_image} /></p>
                     <p>name: {pokemon}</p>
                     <p>species: {species_id}</p>
                     <p>status: {hp}</p>

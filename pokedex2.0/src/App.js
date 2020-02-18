@@ -5,9 +5,10 @@ import {
   Link,
   BrowserRouter as Router, 
 } from 'react-router-dom';
-import Detail from './Detail';
+import Detail from './Details';
 import Home from './Home';
 import About from './About.js';
+import ErrorMessage from './ErrorMessage'
 import './App.css';
 
 export default class App extends Component {
@@ -22,6 +23,7 @@ export default class App extends Component {
               <Route exact path="/:name?" component={Home} />
               <Route exact path="/about-me/About" component={About} />
               <Route exact path="/characters/:charId" component={Detail} />
+              <Route component={ErrorMessage}/>
             </Switch>
           </div>
         </Router>

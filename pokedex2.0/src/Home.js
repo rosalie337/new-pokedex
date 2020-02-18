@@ -12,7 +12,7 @@ export default class Home extends Component {
 
      async componentDidMount() {
          if (this.props.match.params.name) {
-             const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon${this.props.match.params.name}`)
+             const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.props.match.params.name}`)
      
              this.setState({ characters: data.body.results })
          }
@@ -21,7 +21,7 @@ export default class Home extends Component {
     handleSearch = async (e) => {
         e.preventDefault();
 
-        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon${this.state.searchQuery}`)
+        const data = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex/?pokemon=${this.state.searchQuery}`)
 
         this.setState({ 
             characters: data.body.results, })
@@ -34,6 +34,7 @@ export default class Home extends Component {
     handleChange = (e) => this.setState({ searchQuery: e.target.value })
 
     render() {
+        console.log(this.state.characters)
         return (
         <div className="App">
           <header className="App-header">
@@ -45,10 +46,13 @@ export default class Home extends Component {
           </header>
           <ul>
               {
-                    this.state.characters.map(character => 
-                    <Link to={`characters/${character.name}`}> 
+                    this.state.characters.map(character => { 
+                        
+                      return <Link to={`characters/${character.pokemon}`}> 
                         <CharacterItem character={character} />
-                    </Link>)
+                    </Link>;
+
+                    })   
               }
           </ul>
         </div>

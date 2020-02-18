@@ -20,6 +20,7 @@ export default class Detail extends Component {
         const { character } = this.state;
 
         return (
+    
             <CharacterItem character={ character } />
       );
     }
