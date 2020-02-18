@@ -16,9 +16,12 @@ export default class App extends Component {
       return (
         <Router>
           <div>
-            <h2>Pokemon search</h2>
+            <img alt='header' src='https://vignette.wikia.nocookie.net/logopedia/images/6/6f/Pok%C3%A9dex_3D_Pro.png/revision/latest?cb=20130910213833'>
+            </img>
+            <br>
+            </br>
             <Link to="/">Home</Link>
-            <Link to="/about-me/About">About the Developer</Link>
+            <Link to="/about-me/About">About</Link>
             <Switch>
               <Route exact path="/:name?" component={Home} />
               <Route exact path="/about-me/About" component={About} />
